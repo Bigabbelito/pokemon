@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F8F8F8;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #206182;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+h1, h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+label {
+  flex: 1;
+  margin-right: 10px;
+}
+
+input[type="text"] {
+  flex: 2;
+}
+
+button[type="submit"] {
+  flex: 1;
+  background-color: #e2e751;
+  color: #0f0d0d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #c5cf75;
+}
+
+.card {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(198, 112, 112, 0.493);
+  overflow: hidden;
+  width: 200px;
+}
+
+.card-img-top {
+  width: 100%;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-title {
+  margin: 0;
+}
+
+.team-member {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #807516;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.team-member img {
+  width: 75px;
+  margin-right: 10px;
+}
+
+.team-member-details h5 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.alert {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.alert-success {
+  background-color: #D4EDDA;
+  border-color: #C3E6CB;
+  color: #155724;
+}
+
+.alert-warning {
+  background-color: #FFF3CD;
+  border-color: #FFC107;
+  color: #856404;
+}
+
+.alert-danger {
+  background-color: #f299a1;
+  border-color: #F5C6CB}

@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POCEMON</title>
+  <meta charset="UTF-8">
+  <title>Bygga Pokemon Lag</title>
+  <link rel="stylesheet" href="/pokemon/style.css">
 </head>
 <body>
-
+  <div class="container">
+    <h1>Build Your Pokemon Team</h1>
+    <form id="searchForm">
+      <label for="searchInput">Search for a Pokemon:</label>
+      <input type="text" id="searchInput" required>
+      <button type="submit">Search</button>
+    </form>
+    <hr>
+    <div id="searchResults"></div>
+    <hr>
+    <h2>My Team</h2>
+    <div id="teamMembers"></div>
+  </div>
+  <script src="/pokemon/app.js"></script>
 </body>
 </html>
