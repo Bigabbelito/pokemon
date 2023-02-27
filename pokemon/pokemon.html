@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Bygga Pokemon Lag</title>
-  <link rel="stylesheet" href="/pokemon/style.css">
+    <meta charset="utf-8">
+    <title>Min Pokémons Lag</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Build Your Pokemon Team</h1>
-    <form id="searchForm">
-      <label for="searchInput">Search for a Pokemon:</label>
-      <input type="text" id="searchInput" required>
-      <button type="submit">Search</button>
-    </form>
-    <hr>
-    <div id="searchResults"></div>
-    <hr>
-    <h2>My Team</h2>
-    <div id="teamMembers"></div>
-  </div>
-  <script src="/pokemon/app.js"></script>
+    <header>
+        <h1>Min Pokémons-Lag</h1>
+    </header>
+    <main>
+        <section id="pokemon-list">
+        <h2>Alla Pokémons</h2>
+        <input type="text" id="search-pokemon" placeholder="Sök efter en Pokémon">
+        <ul id="pokemon-ul">
+        </ul>
+    </section>
+    <section id="team">
+        <h2>Mitt lag</h2>
+        <p id="team-message"></p>
+        <ul id="team-ul">
+        </ul>
+    </section>
+    </main>
+    <script src="app.js"></script>
 </body>
 </html>
+
+
