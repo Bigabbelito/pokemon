@@ -32,6 +32,7 @@ main {
 }
 
 section {
+  
   background-color: rgba(149, 145, 145, 0.747);
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -86,14 +87,14 @@ section {
   font-style: italic;
 }
 
-#team-ul {
+#team-ul{
   list-style: none;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-#team-ul li {
+ #team-ul li {
   margin: 10px;
   background-color: #f0f0f0;
   border-radius: 5px;
@@ -101,7 +102,7 @@ section {
   cursor: pointer;
 }
 
-#team-ul li img {
+ #team-ul li img {
   max-width: 100%;
   height: auto;
 }

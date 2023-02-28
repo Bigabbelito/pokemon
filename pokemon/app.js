@@ -2,9 +2,14 @@
 const searchInput = document.getElementById('search-pokemon');
 const pokemonList = document.getElementById('pokemon-ul');
 const teamList = document.getElementById('team-ul');
+const reservList = document.querySelector('.reserv-ul');
 const teamMessage = document.getElementById('team-message');
-const addButton = document.getElementById('add-button');
+// const addButton = document.getElementById('add-button');
 const clearButton = document.getElementById('clear-button');
+const displayTeamButton = document.getElementById('display-team-button');
+
+const liTeam = document.querySelector('.team-ul')
+
 
 // Skapa variabler för att spåra det nuvarande laget
 let team = [];
@@ -19,19 +24,96 @@ async function fetchPokemonData(name) {
 
 // Funktion för att visa sökresultat
 async function displayPokemonList(pokemonArray) {
-  pokemonList.innerHTML = '';
+  // pokemonList.innerHTML = '';
   pokemonArray.forEach (async pokemon => {
     let image = await getImage(pokemon.url);
     console.log(image);
     const li = document.createElement('li');
+    li.setAttribute("class", "li-pokemons")
     let img = document.createElement('img')
     img.src=image
     li.appendChild(img)
     li.innerHTML += pokemon.name;
-    li.addEventListener('click', () => addPokemonToTeam(pokemon));
+    läggTillSeplare = document.createElement("button")
+    läggTillSeplare.setAttribute("class", "Lägg-till-spelare")
+    läggTillSeplare.innerHTML = "Lägg till Pokémon"
+    li.append(läggTillSeplare)
+
     pokemonList.appendChild(li);
+
+
+    let taBortPokemon = document.createElement('button')
+    taBortPokemon.innerHTML = "Kicka"
+    taBortPokemon.setAttribute("class", " ta-bortBtn")
+
+    läggTillSeplare.addEventListener("click", () =>{
+      
+      let AntalSpelare = document.querySelectorAll(".team-ul .li-pokemons").length
+      if (AntalSpelare < 3){
+        mittLagPoke(pokemon)
+        
+      }else if(AntalSpelare === 3){
+        reservLagPoke(pokemon)
+        
+      }
+      
+    })
+
+
   });
+  // displayTeam();
+
 }
+
+
+
+const mittLagPoke = async (pokemon) =>{
+  let image = await getImage(pokemon.url);
+  const li = document.createElement('li');
+    li.setAttribute("class", "li-pokemons")
+    let img = document.createElement('img')
+    img.src=image
+    li.appendChild(img)
+    li.innerHTML += pokemon.name;
+    
+    
+    let taBortPokemon = document.createElement('button')
+    taBortPokemon.innerHTML = "Kicka"
+    taBortPokemon.setAttribute("class", " ta-bortBtn")
+    li.append(taBortPokemon)
+    
+    teamList.appendChild(li);
+    taBortPokemon.addEventListener("click", (e) =>{
+      li.remove()
+    })
+
+}
+const reservLagPoke = async (pokemon) =>{
+  let image = await getImage(pokemon.url);
+  const li = document.createElement('li');
+    li.setAttribute("class", "li-pokemons")
+    let img = document.createElement('img')
+    img.src=image
+    li.appendChild(img)
+    li.innerHTML += pokemon.name;
+    
+    
+    let taBortPokemon = document.createElement('button')
+    taBortPokemon.innerHTML = "Kicka"
+    taBortPokemon.setAttribute("class", " ta-bortBtn")
+    li.append(taBortPokemon)
+    
+    reservList.appendChild(li);
+    taBortPokemon.addEventListener("click", (e) =>{
+      li.remove()
+    })
+
+}
+
+
+
+
+
 async function getImage(url){
     let response = await fetch(url)
     let data = await response.json()
@@ -43,7 +125,7 @@ async function searchPokemon() {
   if (searchTerm.length === 0) {
     return;
   }
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`);
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`);
   const data = await response.json();
   const pokemonArray = data.results.filter(pokemon => {
     return pokemon.name.includes(searchTerm.toLowerCase());
@@ -68,22 +150,6 @@ function removePokemonFromTeam(index) {
   displayTeam();
 }
 
-// Funktion för att visa laget
-function displayTeam() {
-  teamList.innerHTML = '';
-  team.forEach((pokemon, index) => {
-    const li = document.createElement('li');
-    const img = document.createElement('img');
-    img.src = pokemon.sprites.front_default;
-    const button = document.createElement('button');
-    button.textContent = 'Ta bort';
-    button.addEventListener('click', () => removePokemonFromTeam(index));
-    li.appendChild(img);
-    li.appendChild(button);
-    teamList.appendChild(li);
-  });
-}
-
 // Funktion för att rensa hela laget
 function clearTeam() {
   team = [];
@@ -92,6 +158,4 @@ function clearTeam() {
 
 // Lyssna efter händelser
 searchInput.addEventListener('input', searchPokemon);
-addButton.addEventListener('click', () => searchPokemon());
-clearButton.addEventListener('click', clearTeam);
 
