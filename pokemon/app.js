@@ -43,16 +43,17 @@ async function displayPokemonList(pokemonArray) {
 
 
     let taBortPokemon = document.createElement('button')
-    taBortPokemon.innerHTML = "Kicka"
+    taBortPokemon.innerHTML = "Kicka Pokemon"
     taBortPokemon.setAttribute("class", " ta-bortBtn")
 
     läggTillSeplare.addEventListener("click", () =>{
       
-      let AntalSpelare = document.querySelectorAll(".team-ul .li-pokemons").length
-      if (AntalSpelare < 3){
+      let antalSpelare = document.querySelectorAll(".team-ul .li-pokemons").length
+      if (antalSpelare < 3){
         mittLagPoke(pokemon)
+        kontrolleraLag()
         
-      }else if(AntalSpelare === 3){
+      }else if(antalSpelare === 3){
         reservLagPoke(pokemon)
         
       }
@@ -78,7 +79,7 @@ const mittLagPoke = async (pokemon) =>{
     
     
     let taBortPokemon = document.createElement('button')
-    taBortPokemon.innerHTML = "Kicka"
+    taBortPokemon.innerHTML = "Kicka Pokemon"
     taBortPokemon.setAttribute("class", " ta-bortBtn")
     li.append(taBortPokemon)
     
@@ -99,7 +100,7 @@ const reservLagPoke = async (pokemon) =>{
     
     
     let taBortPokemon = document.createElement('button')
-    taBortPokemon.innerHTML = "Kicka"
+    taBortPokemon.innerHTML = "Kicka Pokemon"
     taBortPokemon.setAttribute("class", " ta-bortBtn")
     li.append(taBortPokemon)
     
@@ -109,10 +110,6 @@ const reservLagPoke = async (pokemon) =>{
     })
 
 }
-
-
-
-
 
 async function getImage(url){
     let response = await fetch(url)
@@ -159,3 +156,12 @@ function clearTeam() {
 // Lyssna efter händelser
 searchInput.addEventListener('input', searchPokemon);
 
+const kontrolleraLag = () =>{
+  let antalSpelare = document.querySelectorAll(".team-ul").length
+  let meddelandeLag = document.querySelector(".minst-antal-spelare")
+  if(antalSpelare < 3) {
+    meddelandeLag.innerHTML = `Du behöver minst 3 pokémon du har ${1+ antalSpelare}`
+  }else {
+    meddelandeLag.innerHTML = `Du har ${1+ antalSpelare} Du kan lägga resten i reserv`
+  }
+}

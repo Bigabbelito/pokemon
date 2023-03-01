@@ -7,18 +7,29 @@
 </head>
 <body>
     <header>
-        <h1>Min Pokémons-Lag</h1>
+        <h1>Poké manager</h1>       
+        <input type="text" id="search-pokemon" placeholder="Sök efter en Pokémon">
+        <nav>
+            <ul>
+                <li class="selected">
+                    <a href="#search-pokemon">Find champions</a>
+                </li>
+                <li class="selected">
+                    <a href="#team">My team</a>
+                </li>
+            </ul>
+        </nav>
     </header>
     <main>
         <section id="pokemon-list">
-        <h2>Alla Pokémons</h2>
-        <input type="text" id="search-pokemon" placeholder="Sök efter en Pokémon">
+        <h2>Hitta och lägga till lagmedlemmar</h2>
         <ul id="pokemon-ul">
         </ul>
     </section>
     <section id="team">
-        <h2>Mitt lag</h2>
+        <h2>Laguppställning</h2>
         <!-- <button id="display-team-button">Visa laget</button> -->
+        <p class="minst-antal-spelare">Du behöver minst 3 pokémon du har 0</p>
         <p id="team-message"></p>
         <ul class="team-ul" id="team-ul">
         </ul>
