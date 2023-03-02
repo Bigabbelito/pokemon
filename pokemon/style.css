@@ -221,5 +221,6 @@ button:hover {
 } 
 
 .change-name{
-  background-color: #24c932;
+  background-color: rgb(21, 99, 155);
+  color: #fff;
 }
