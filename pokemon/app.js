@@ -1,3 +1,6 @@
+import {LagSpelare} from "../LagMeddelande.js";
+
+
 // Hämta element från DOM
 const searchInput = document.getElementById('search-pokemon');
 const pokemonList = document.getElementById('pokemon-ul');
@@ -18,6 +21,7 @@ förstaSidan.style.display= "block"
 teamKnapp.addEventListener("click", () =>{
 	teamSida2.style.display= "block"
 	förstaSidan.style.display= "none"
+	LagSpelare()
 })
 
 findKnapp.addEventListener("click", () =>{
@@ -67,13 +71,15 @@ async function displayPokemonList(pokemonArray) {
 		läggTillSeplare.addEventListener("click", () =>{
 			let antalSpelare = document.querySelectorAll(".team-ul .li-pokemons").length
 			console.log('läggTillSeplare button click', antalSpelare)
-			// p-ElementInternals.innerText = ('hej')
+			LagSpelare()
 			if (antalSpelare < 3){
 				mittLagPoke(pokemon)
+			
 				// kontrolleraLag()
 				
 			}else if(antalSpelare === 3){
 				reservLagPoke(pokemon)
+			
 				
 			}
 			// hitta p-taggen
@@ -83,14 +89,6 @@ async function displayPokemonList(pokemonArray) {
 			
 			
 		})
-		let teamMessage = document.querySelectorAll('minst-antal-spelare')
-			
-			if (pokemonArray <= 3){
-				console.log(pokemonArray)
-				teamMessage.innerHTML = `Du behöver minst 3 pokémon du har ${1+ pokemonArray }`
-			}else if(pokemonArray > 3){
-				teamMessage.innerHTML = `Du har ${1+ pokemonArray} Du kan lägga resten i reserv`
-			}
 	});
 }
 
@@ -124,21 +122,23 @@ const mittLagPoke = async (pokemon) =>{
 		} )
 		namnInput.addEventListener("keydown", (e) => {
 			if(e.key === "Enter"){
-			pokemon.name = namnInput.value
-			name.innerHTML = pokemon.name
+			
+			name.innerHTML = namnInput.value
 			namnInput.style.display = "none"
 			namnInput.value = "";
 			}
 		})
-		
 		li.append(ändranam)
 
-	teamList.appendChild(li);
-	taBortPokemon.addEventListener("click", (e) =>{
+	teamList.append(li);
+	taBortPokemon.addEventListener("click", () =>{
 		li.remove()
+		LagSpelare()
 	})
 	
 }
+
+
 const reservLagPoke = async (pokemon) =>{
 	let image = await getImage(pokemon.url);
 	const li = document.createElement('li');
@@ -146,18 +146,43 @@ const reservLagPoke = async (pokemon) =>{
 	let img = document.createElement('img')
 	img.src=image
 	li.appendChild(img)
-	li.innerHTML += pokemon.name;
-	
+	let name = document.createElement('h3')
+	name.innerHTML = pokemon.name;
+	li.appendChild(name)
 	
 	let taBortPokemon = document.createElement('button')
 	taBortPokemon.innerHTML = "Kicka Pokemon"
 	taBortPokemon.setAttribute("class", " ta-bortBtn")
 	li.append(taBortPokemon)
 	
+	let namnInput = document.createElement('input')
+	namnInput.setAttribute("class", "change-name")
+	li.appendChild(namnInput)
+	namnInput.style.display = "none"
+	let ändranam = document.createElement('button')
+		ändranam.innerHTML = "Ändra Namn"
+		ändranam.setAttribute("class", " changetBtn")
+		ändranam.addEventListener("click",() =>{
+			console.log(namnInput.value)
+			namnInput.style.display = "block"
+			namnInput.focus()
+		} )
+		namnInput.addEventListener("keydown", (e) => {
+			if(e.key === "Enter"){
+			
+			name.innerHTML = namnInput.value
+			namnInput.style.display = "none"
+			namnInput.value = "";
+			}
+		})
+		li.append(ändranam)
+	
 	reservList.appendChild(li);
-	taBortPokemon.addEventListener("click", (e) =>{
+	taBortPokemon.addEventListener("click", () =>{
 		li.remove()
+		LagSpelare()
 	})
+	
 }
 
 async function getImage(url){
@@ -181,17 +206,17 @@ async function searchPokemon() {
 }
 
 
-// Funktion för att ta bort en Pokémon från laget
-function removePokemonFromTeam(index) {
-	team.splice(index, 1);
-	displayTeam();
-}
+// // Funktion för att ta bort en Pokémon från laget
+// function removePokemonFromTeam(index) {
+// 	team.splice(index, 1);
+// 	displayTeam();
+// }
 
-// Funktion för att rensa hela laget
-function clearTeam() {
-	team = [];
-	displayTeam();
-}
+// // Funktion för att rensa hela laget
+// function clearTeam() {
+// 	team = [];
+// 	displayTeam();
+// }
 
 // Lyssna efter händelser
 searchInput.addEventListener('input', searchPokemon);
