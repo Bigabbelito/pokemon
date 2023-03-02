@@ -219,3 +219,7 @@ section {
 button:hover {
   background-color: #00d936;
 } 
+
+.change-name{
+  background-color: #24c932;
+}

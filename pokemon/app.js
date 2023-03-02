@@ -83,7 +83,7 @@ async function displayPokemonList(pokemonArray) {
 			
 			
 		})
-		let teamMessage = document.querySelectorAll('.minst-antal-spelare')
+		let teamMessage = document.querySelectorAll('minst-antal-spelare')
 			
 			if (pokemonArray <= 3){
 				console.log(pokemonArray)
@@ -111,17 +111,26 @@ const mittLagPoke = async (pokemon) =>{
 	li.append(taBortPokemon)
 	
 	let namnInput = document.createElement('input')
+	namnInput.setAttribute("class", "change-name")
 	li.appendChild(namnInput)
+	namnInput.style.display = "none"
 	let ändranam = document.createElement('button')
 		ändranam.innerHTML = "Ändra Namn"
 		ändranam.setAttribute("class", " changetBtn")
 		ändranam.addEventListener("click",() =>{
-
 			console.log(namnInput.value)
-
+			namnInput.style.display = "block"
+			namnInput.focus()
+		} )
+		namnInput.addEventListener("keydown", (e) => {
+			if(e.key === "Enter"){
 			pokemon.name = namnInput.value
 			name.innerHTML = pokemon.name
-		} )
+			namnInput.style.display = "none"
+			namnInput.value = "";
+			}
+		})
+		
 		li.append(ändranam)
 
 	teamList.appendChild(li);
@@ -186,6 +195,3 @@ function clearTeam() {
 
 // Lyssna efter händelser
 searchInput.addEventListener('input', searchPokemon);
-
-
-
