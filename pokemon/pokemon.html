@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="app.js" type="module"></script>
+    <meta charset="utf-8">
+    <title>Min Pokémons Lag</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Poké manager</h1>       
+        
+        <div class="button-div">
+            
+            <button class="selected2">Find Poké</button>
+            <button class="selected">My Team</button>
+        </div>
+        <input type="text" id="search-pokemon" placeholder="Sök efter en Pokémon">
+    </header>
+    <!-- Här kan du se lag section i olika vy:er -->
+    <main>
+        <section id="pokemon-list">
+        <h2>Hitta och lägga till lagmedlemmar</h2>
+        <ul id="pokemon-ul">
+        </ul>
+    </section>
+    <section id="team">
+        <h2>Laguppställning</h2>
+        <p class="minst-antal-spelare" id="minst-antal-spelare">Du behöver minst 3 pokémon för att kunna spela du har 0</p>
+        <p id="team-message"></p>
+        <ul class="team-ul" id="team-ul">
+        </ul>
+        <ul class="reserv-ul">
+            <h2>Reserv Team</h2>
+        </ul>
+    </section>
+    </main>
+</body>
+</html>
+
+
