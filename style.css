@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+header {
+  background-color: #c92222ea;
+  color: #ffffff;
+  padding: 20px;
+}
+.button-div{
+	display: flex;
+  justify-content: center;
+	flex-direction: row;
+	margin: 0.2rem 0;
+	padding: 0;
+}
+.button-div button {
+	margin: 0;
+	padding: 0;
+	border: 1px solid gray;
+	border-left: none;
+}
+.button-div button { 
+  background-color: #666; 
+}
+.button-div button:first-child { 
+  border-left: 1px solid gray;
+}
+.button-div button:hover {
+  background: #000000;
+}
+nav {
+	padding: 0rem;
+	padding-bottom: 0.1rem;
+	display: grid;
+	justify-content: center;
+}
+
+h2 {
+  justify-items: center;
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+main {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+section {
+  
+  background-color: rgba(149, 145, 145, 0.747);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.minst-antal-spelare{
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 10px 10px 5px #ffffff;
+	margin-bottom: 1em;
+	background-color: rgb(0, 0, 0);
+	color: #e4efff;
+	text-align: center;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	border-radius: 10px;
+	font-size: 16px;
+	font-weight: bold;
+  }
+
+@media screen and (min-width: 340px) {
+  section {
+    width: 100%;
+  }
+}
+
+#pokemon-list {
+  margin-right: 20px;
+}
+
+#search-pokemon {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+#pokemon-ul {
+  list-style: none;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+#pokemon-ul li {
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#pokemon-ul li:hover {
+  background-color: #d9d9d9;
+}
+
+#team {
+  text-align: center;
+}
+
+#team-message {
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+#team-ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+ #team-ul li {
+  margin: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+ #team-ul li img {
+  max-width: 100%;
+  height: auto;
+}
+
+#team-ul li:hover {
+  background-color: #d9d9d9;
+}
+#team-ul button{
+  background-color: #c92424;
+  border: none;
+  border-radius: 5%;
+  color: white;
+  cursor: pointer;
+  font-size: 11px;
+  height: 30px;
+  margin-left: 10px;
+  width: 100px;
+}
+#team-ul button:hover {
+  background-color: #d90000;
+} 
+
+/*Reserv*/
+.reserv-ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+ .reserv-ul li {
+  margin: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.reserv-ul li img {
+  max-width: 100%;
+  height: auto;
+}
+
+.reserv-ul li:hover {
+  background-color: #d9d9d9;
+}
+
+.reserv-ul li {
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.reserv-ul button{
+  background-color: #c92424;
+  border: none;
+  border-radius: 5%;
+  color: white;
+  cursor: pointer;
+  font-size: 11px;
+  height: 30px;
+  margin-left: 10px;
+  width: 100px;
+}
+.reserv-ul button:hover {
+  background-color: #d90000;
+} 
+.reserv-ul li:hover {
+  background-color: #d9d9d9;
+}
+ button {
+  background-color: #cfcf2a;
+  border: none;
+  border-radius: 5%;
+  color: white;
+  cursor: pointer;
+  font-size: 11px;
+  height: 30px;
+  margin-left: 10px;
+  width: 100px;
+}
+
+button:hover {
+  background-color: #00d936;
+} 
+
+.change-name{
+  background-color: rgb(21, 99, 155);
+  color: #fff;
+}
