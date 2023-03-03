@@ -1,3 +1,4 @@
+//Medelande som visar ut pokémon i laget
 const LagSpelare = () =>{
   let antalSpelare = document.querySelectorAll(".team-ul .li-pokemons").length
   let reservSpelare = document.querySelectorAll(".reserv-ul .li-pokemons").length

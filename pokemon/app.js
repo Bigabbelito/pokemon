@@ -1,4 +1,4 @@
-import {LagSpelare} from "../LagMeddelande.js";
+import {LagSpelare} from "./LagMeddelande.js";
 
 
 // Hämta element från DOM
@@ -17,16 +17,20 @@ const findKnapp = document.querySelector('.selected2')
 
 teamSida2.style.display= "none"
 förstaSidan.style.display= "block"
+searchInput.style.display = "none"
 
 teamKnapp.addEventListener("click", () =>{
 	teamSida2.style.display= "block"
 	förstaSidan.style.display= "none"
+	searchInput.style.display = "none"
+
 	LagSpelare()
 })
 
 findKnapp.addEventListener("click", () =>{
 	teamSida2.style.display= "none"
 	förstaSidan.style.display= "block"
+	searchInput.style.display = "block"
 })
 
 
@@ -73,21 +77,10 @@ async function displayPokemonList(pokemonArray) {
 			console.log('läggTillSeplare button click', antalSpelare)
 			LagSpelare()
 			if (antalSpelare < 3){
-				mittLagPoke(pokemon)
-			
-				// kontrolleraLag()
-				
+				mittLagPoke(pokemon)				
 			}else if(antalSpelare === 3){
-				reservLagPoke(pokemon)
-			
-				
-			}
-			// hitta p-taggen
-			//uppdatera texten
-			
-			
-			
-			
+				reservLagPoke(pokemon)	
+			}		
 		})
 	});
 }
@@ -184,12 +177,13 @@ const reservLagPoke = async (pokemon) =>{
 	})
 	
 }
-
 async function getImage(url){
 	let response = await fetch(url)
 	let data = await response.json()
 	return await data.sprites.front_default
 }
+
+
 // Funktion för att söka efter Pokémons
 async function searchPokemon() {
 	pokemonList.innerHTML = "";
@@ -204,19 +198,6 @@ async function searchPokemon() {
 	});
 	displayPokemonList(pokemonArray);
 }
-
-
-// // Funktion för att ta bort en Pokémon från laget
-// function removePokemonFromTeam(index) {
-// 	team.splice(index, 1);
-// 	displayTeam();
-// }
-
-// // Funktion för att rensa hela laget
-// function clearTeam() {
-// 	team = [];
-// 	displayTeam();
-// }
 
 // Lyssna efter händelser
 searchInput.addEventListener('input', searchPokemon);

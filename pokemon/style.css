@@ -11,8 +11,8 @@ body {
 }
 
 header {
-  background-color: #4ea2a7ea;
-  color: white;
+  background-color: #c92222ea;
+  color: #ffffff;
   padding: 20px;
 }
 .button-div{
@@ -27,7 +27,6 @@ header {
 	padding: 0;
 	border: 1px solid gray;
 	border-left: none;
-/* 	border-collapse: collapse; */
 }
 .button-div button { 
   background-color: #666; 
@@ -36,10 +35,9 @@ header {
   border-left: 1px solid gray;
 }
 .button-div button:hover {
-  background: #333333;
+  background: #000000;
 }
 nav {
-/* 	border: 1px solid red; */
 	padding: 0rem;
 	padding-bottom: 0.1rem;
 	display: grid;
@@ -48,13 +46,13 @@ nav {
 
 h2 {
   justify-items: center;
-  color: #000;
+  color: #ffffff;
   font-size: 2rem;
   margin-bottom: 10px;
 }
 
 main {
-  background-color: rgb(21, 99, 155);
+  background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -71,7 +69,24 @@ section {
   width: 100%;
 }
 
-@media screen and (min-width: 1200px) {
+.minst-antal-spelare{
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 10px 10px 5px #ffffff;
+	margin-bottom: 1em;
+	background-color: rgb(0, 0, 0);
+	color: #e4efff;
+	text-align: center;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	border-radius: 10px;
+	font-size: 16px;
+	font-weight: bold;
+  }
+
+@media screen and (min-width: 340px) {
   section {
     width: 100%;
   }
@@ -205,7 +220,7 @@ section {
   background-color: #d9d9d9;
 }
  button {
-  background-color: #24c932;
+  background-color: #cfcf2a;
   border: none;
   border-radius: 5%;
   color: white;
